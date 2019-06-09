@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+option go_package = "pb";
+
+
+
+message Block {
+    uint32 blockindex = 1;
+    bytes version = 2;
+    BlockHeader header =3;
+    uint32 size = 4;
+    float reward = 5;
+    float txvalues = 6;
+    uint32 txcount = 7;
+    bytes merkleroot = 8;
+    repeated Transaction transactions = 9;
+    int64 timestamp = 10;
+}
+
+message BlockHeader {
+    uint32 chainid = 1;
+    uint32 height = 2;
+    uint32 difficulty = 3;
+    bytes nonce = 4;
+    bytes hash = 5;
+    bytes signature = 6;
+    int64 timestamp = 7;
+    bytes blocktype=8;
+    bytes blockversion=9;
+    bytes blocknetwork=10;
+}
+
+message Transaction {
+    bytes id = 1;
+    repeated Input inputs = 2;
+    repeated Output outputs = 3;
+    SignedUTXO utxo = 4;
+    int64 timestamp = 5;
+    message Output {
+        float amount = 1;
+        string address = 2;
+        bytes data = 3;
+
+    }
+    message Input {
+        string txid = 1;
+        bytes hash = 2;
+        bytes nonce = 3;
+        string index = 4;
+        string txtype = 5;
+        float amount = 6;
+        string address = 7;
+        bytes signature = 8;
+    }
+
+    message SignedUTXO {
+        bytes outpoint = 1;
+        bytes signature = 2;
+    }
+
+    message SignedTX {
+        string txid = 1;
+        bytes signature = 2;
+    }
+}
+
+
+
+
+message SignedLimitOrder {
+    bytes serializedLimitOrder = 1;
+    bytes signature = 2;
+}
+
+message LimitOrder {
+    string peerID = 1;
+    bool buyBTC = 2;
+    bool buySwagg = 3;
+    bool buyDoge = 4;
+    uint64 quantity = 5;
+    uint64 price = 6;
+    SignedUTXO utxo = 7;
+    int64 expiry = 8;
+
+    message SignedUTXO {
+        bytes outpoint = 1;
+        bytes signature = 2;
+    }
+
+}
+
+message SignedRemoveOrder {
+    string OrderID = 1;
+    bytes signature = 3;
+}

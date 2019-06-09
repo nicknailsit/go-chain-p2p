@@ -1,0 +1,58 @@
+syntax = "proto3";
+option go_package = "pb";
+
+message Message {
+    MessageType messageType = 1;
+    bytes payload = 2;
+
+    enum MessageType {
+        AuthLogin = 0;
+        AuthRegister = 1;
+        AuthLogout = 2;
+        SendTransaction = 3;
+        ConfirmTransaction = 4;
+        GetFullChain = 5;
+        SendFullChain =10;
+        SendPartialChain = 11;
+        GetPartialChain = 12;
+        GetChainInfo = 34;
+        GetBlockIndexes = 13;
+        GetBlockHeaders = 14;
+        GetBlockID = 15;
+        GetChainHead = 28;
+        GetChainReceipts = 29;
+
+        GetWallet = 6;
+        NewWallet = 7;
+        LockWallet = 8;
+        UnlockWallet = 9;
+
+        LimitOrder = 16;
+        OrderClose = 17;
+        MarketOrder = 18;
+        GetOrderBook = 19;
+        GetSwaggPrice = 20;
+        GetBTCPrice = 21;
+        GetDogePrice = 22;
+        GetSwaggDogePair = 23;
+        GetBTCSwaggPair = 24;
+
+        CreateToken = 25;
+        GetTokenInfo = 26;
+        GetTokenPrice = 27;
+
+        GetMasterNodes = 30;
+
+        ContentTransaction = 31;
+        SetContentOwner = 32;
+        GetContentOwner = 33;
+
+        AccountError = 35;
+        ChainError = 36;
+        TransactionError = 37;
+        NetworkError = 38;
+
+
+
+    }
+}
