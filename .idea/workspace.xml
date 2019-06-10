@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7dfa287-95fe-49e5-9a70-36d6dfb1d82a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swaggchain/genesis.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swaggchain/keys.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swaggchain/swaggchain.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/dna.go" beforeDir="false" afterPath="$PROJECT_DIR$/core/dna.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/interfaces.go" beforeDir="false" afterPath="$PROJECT_DIR$/core/interfaces.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/node.go" beforeDir="false" afterPath="$PROJECT_DIR$/core/node.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/pb/chain.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/core/pb/chain.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/pb/chain.proto" beforeDir="false" afterPath="$PROJECT_DIR$/core/pb/chain.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/pb/messages.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/core/pb/messages.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chain/pb/messages.proto" beforeDir="false" afterPath="$PROJECT_DIR$/core/pb/messages.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p2p/streamTypeHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/p2p/streamTypeHandler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repo/dnapow.go" beforeDir="false" afterPath="$PROJECT_DIR$/repo/dnapow.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/chainservice.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/services/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +98,7 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -328,7 +312,7 @@
     <frame x="0" y="23" width="2560" height="1337" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19539317" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19539317" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -342,7 +326,7 @@
       <window_info anchor="bottom" id="XMake" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" x="-1920" y="99" width="1920" height="690" id="Terminal" order="11" weight="0.4947791" />
+      <window_info active="true" anchor="bottom" x="-1920" y="99" width="1920" height="690" id="Terminal" order="11" visible="true" weight="0.4947791" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -610,7 +594,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
