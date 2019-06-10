@@ -7,7 +7,7 @@ import (
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/op/go-logging"
 	"io"
-	"swaggp2p/chain/pb"
+	"swaggp2p/core/pb"
 	ggio "github.com/gogo/protobuf/io"
 	ctxio "github.com/jbenet/go-context/io"
 	inet "github.com/libp2p/go-libp2p-core/network"

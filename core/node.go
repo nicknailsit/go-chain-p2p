@@ -1,4 +1,4 @@
-package chain
+package core
 
 import (
 	"context"
@@ -16,7 +16,7 @@ import (
 	"github.com/multiformats/go-multihash"
 	"github.com/op/go-logging"
 	"io"
-	"swaggp2p/chain/pb"
+	"swaggp2p/core/pb"
 	"swaggp2p/repo"
 	"swaggp2p/services"
 	"sync"

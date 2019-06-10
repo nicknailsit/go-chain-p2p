@@ -1,7 +1,7 @@
-package chain
+package core
 
 import (
-	"swaggp2p/chain/pb"
+	"swaggp2p/core/pb"
 	"sync"
 	"time"
 )
@@ -24,7 +24,7 @@ type Swagg interface {
 type GenesisBlock struct {
 	sync.Mutex
 	*pb.Block
-	codes GenesisSpecialCodes // special codes not queryable othen than from the chain who did create it
+	codes GenesisSpecialCodes // special codes not queryable othen than from the core who did create it
 
 }
 
@@ -49,14 +49,14 @@ type SwaggChain struct {
 	height uint32
 	coinbase *Coinbase
 	addressBook *AddressBook
-	blocks []*pb.Block
+	Blocks []*pb.Block
 	lastHash []byte
 	lastBlockIndex []byte
 	lastReward uint64
 	difficulty uint64
 	logoAddress []byte
 	dna []byte
-	Swagg
+
 }
 
 type Coinbase struct {
@@ -93,7 +93,7 @@ type Organism struct {
 	ParentB []byte
 }
 
-//Population fitness of the chain (blocks) based on the natural selection matheuristics by
+//Population fitness of the core (blocks) based on the natural selection matheuristics by
 type ChainDNA interface {
 	createOrganism(target []byte) (organism Organism)
 	createPopulation(target []byte) (population []Organism)

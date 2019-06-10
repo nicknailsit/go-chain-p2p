@@ -70,7 +70,7 @@ type SyncChainHandler struct {
 
 func (sc SyncChainHandler) FullChain(peer host.Host, stream network.Stream) *SyncChainHandler {
 
-	T := sc.th.create("SYNCFULL", "/chain/sync/full")
+	T := sc.th.create("SYNCFULL", "/core/sync/full")
 
 	Syncer := &SyncChainHandler{
 		th: T,

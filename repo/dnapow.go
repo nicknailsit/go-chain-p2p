@@ -49,7 +49,7 @@ func GetTrainingSet() map[int]string {
 }
 
 
-//training the markov chain to be able to generate sentences for pow
+//training the markov core to be able to generate sentences for pow
 func TrainForPow() string {
 
 
