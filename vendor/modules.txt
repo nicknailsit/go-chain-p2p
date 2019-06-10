@@ -1,15 +1,11 @@
 # github.com/BluntSporks/readability v0.0.0-20170405091137-6f1eb9729696
 github.com/BluntSporks/readability
-# github.com/alecthomas/gozmq v0.0.0-20140622232202-d1b01a2df6b2
-github.com/alecthomas/gozmq
 # github.com/beevik/ntp v0.2.0
 github.com/beevik/ntp
 # github.com/btcsuite/btcd v0.0.0-20190213025234-306aecffea32
 github.com/btcsuite/btcd/btcec
 # github.com/coreos/go-semver v0.3.0
 github.com/coreos/go-semver/semver
-# github.com/davecgh/go-spew v1.1.1
-github.com/davecgh/go-spew/spew
 # github.com/gogo/protobuf v1.2.1
 github.com/gogo/protobuf/proto
 github.com/gogo/protobuf/io
@@ -128,10 +124,10 @@ github.com/libp2p/go-libp2p-autonat/pb
 github.com/libp2p/go-libp2p-circuit
 github.com/libp2p/go-libp2p-circuit/pb
 # github.com/libp2p/go-libp2p-core v0.0.1
-github.com/libp2p/go-libp2p-core
 github.com/libp2p/go-libp2p-core/crypto
 github.com/libp2p/go-libp2p-core/host
 github.com/libp2p/go-libp2p-core/peer
+github.com/libp2p/go-libp2p-core
 github.com/libp2p/go-libp2p-core/network
 github.com/libp2p/go-libp2p-core/peerstore
 github.com/libp2p/go-libp2p-core/protocol
@@ -224,6 +220,7 @@ github.com/minio/sha256-simd
 # github.com/mitchellh/go-homedir v1.1.0
 github.com/mitchellh/go-homedir
 # github.com/mr-tron/base58 v1.1.2
+github.com/mr-tron/base58
 github.com/mr-tron/base58/base58
 # github.com/mtso/syllables v0.1.0
 github.com/mtso/syllables
@@ -246,9 +243,9 @@ github.com/multiformats/go-multistream
 # github.com/op/go-logging v0.0.0-20160315200505-970db520ece7
 github.com/op/go-logging
 # github.com/opentracing/opentracing-go v1.0.2
+github.com/opentracing/opentracing-go/log
 github.com/opentracing/opentracing-go
 github.com/opentracing/opentracing-go/ext
-github.com/opentracing/opentracing-go/log
 # github.com/pkg/errors v0.8.1
 github.com/pkg/errors
 # github.com/spacemonkeygo/openssl v0.0.0-20181017203307-c2dcc5cca94a
@@ -297,6 +294,7 @@ go.opencensus.io/internal/tagencoding
 go.opencensus.io/metric/metricproducer
 go.opencensus.io/resource
 # golang.org/x/crypto v0.0.0-20190513172903-22d7a77e9e5f
+golang.org/x/crypto/ripemd160
 golang.org/x/crypto/ed25519
 golang.org/x/crypto/blake2s
 golang.org/x/crypto/sha3

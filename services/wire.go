@@ -2,10 +2,12 @@ package services
 
 import (
 	"context"
+	"fmt"
 	"github.com/libp2p/go-libp2p-core/host"
 	"github.com/libp2p/go-libp2p-core/protocol"
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/op/go-logging"
+	"github.com/opentracing/opentracing-go/log"
 	"io"
 	"swaggp2p/core/pb"
 	ggio "github.com/gogo/protobuf/io"
@@ -20,7 +22,7 @@ var logservice = logging.MustGetLogger("service")
 
 type WireService struct {
 	msgChan WireChannel
-	chainSync *ChainService
+
 	timeSync *UTCTimeService
 	orderBook *interface{}
 	peerHost host.Host
@@ -67,7 +69,7 @@ func (ws *WireService) SendRequest(peer peer.ID, pmes *pb.Message) (*pb.Message,
 	if err := r.ReadMsg(rmes); err != nil {
 		s.Reset()
 		if err == io.EOF {
-			log.Debugf("Disconnected from peer %s", peer.Pretty())
+			fmt.Errorf("Disconnected from peer %s", peer.Pretty())
 		}
 		return nil, err
 	}
@@ -83,7 +85,7 @@ func (ws *WireService) handleNewMessage(s inet.Stream) {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
-	timer := time.NewTimer(time.Second *TTL)
+	timer := time.NewTimer(time.Second *30)
 	defer timer.Stop()
 	go func(){
 		select {
@@ -101,7 +103,7 @@ func (ws *WireService) handleNewMessage(s inet.Stream) {
 		if err := r.ReadMsg(pmes); err != nil {
 			s.Reset()
 			if err == io.EOF {
-				log.Debugf("Disconnected from peer %s", mPeer.Pretty())
+				fmt.Errorf("Disconnected from peer %s", mPeer.Pretty())
 
 			}
 			return

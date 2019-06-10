@@ -7,6 +7,8 @@ import (
 	"github.com/libp2p/go-libp2p-core"
 	"github.com/libp2p/go-libp2p-core/host"
 	"github.com/libp2p/go-libp2p-core/peer"
+	"github.com/opentracing/opentracing-go/log"
+
 	"io"
 	"strconv"
 	"time"
@@ -67,12 +69,12 @@ func (u *UTCTimeService) UTCTimeHandler(s core.Stream) {
 	for {
 		_, err := io.ReadFull(s, buf)
 		if err != nil {
-			log.Debug(err)
+			log.Error(err)
 			return
 		}
 		_, err = s.Write(buf)
 		if err != nil {
-			log.Debug(err)
+			log.Error(err)
 			return
 		}
 
@@ -82,7 +84,7 @@ func (u *UTCTimeService) UTCTimeHandler(s core.Stream) {
 }
 
 func (u *UTCTimeService) GetTime(ctx context.Context, p peer.ID) (<-chan []byte, error) {
-	s, err := u.Host.NewStream(ctx, p, ID)
+	s, err := u.Host.NewStream(ctx, p)
 	if err != nil {
 		return nil, err
 	}

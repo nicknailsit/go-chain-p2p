@@ -3,17 +3,16 @@ package core
 import (
 	"context"
 	"crypto/sha256"
-	"fmt"
+
 	"github.com/gogo/protobuf/proto"
 	"github.com/ipfs/go-cid"
-	"github.com/libp2p/go-libp2p"
-	core "github.com/libp2p/go-libp2p-core"
-	"github.com/libp2p/go-libp2p-core/crypto"
+
 	"github.com/libp2p/go-libp2p-core/host"
 	dht "github.com/libp2p/go-libp2p-kad-dht"
 	peer "github.com/libp2p/go-libp2p-core/peer"
 	fs "github.com/libp2p/go-libp2p-pubsub"
 	"github.com/multiformats/go-multihash"
+
 	"github.com/op/go-logging"
 	"io"
 	"swaggp2p/core/pb"
@@ -32,19 +31,8 @@ const (
 	ReSubscribeInterval = time.Hour
 	ReconnectInterval = time.Minute
 	MinConnectedSubscribers = 2
+
 )
-
-func makeRandomNode(port int, done chan bool) *Node {
-	priv, _, _ := crypto.GenerateKeyPair(crypto.Secp256k1, 256)
-	listen, _ := ma.NewMultiAddr(fmt.Sprintf("/ip4/127.0.0.1/tcp/%d", port))
-	host, _ := libp2p.New(
-		context.Background(),
-		libp2p.ListenAddrs(listen),
-		libp2p.Identity(priv),
-		)
-
-	return NewNode(host, done)
-}
 
 func init() {
 	h := sha256.Sum256([]byte("floodsub:Chain"))
@@ -119,7 +107,7 @@ type SwaggNode struct {
 	msgChan chan interface{}
 	connectedSubs map[peer.ID]bool
 	orderBook interface{}
-	blockchain *services.ChainService
+
 	wireService *services.WireService
 	timeService *services.UTCTimeService
 
@@ -145,10 +133,10 @@ func (n *SwaggNode) MsgChan() chan interface{} {
 func (n *SwaggNode) SetWireService(ws *services.WireService) {
 	n.wireService = ws
 }
-
+/*
 func (n *SwaggNode) SetChainService(cs *services.ChainService) {
 	n.blockchain = cs
-}
+}*/
 
 func (n *SwaggNode) SetUTCTimeService(utc *services.UTCTimeService) {
 	n.timeService = utc
@@ -175,13 +163,13 @@ func (n *SwaggNode) messageHandler() {
 					delete(n.connectedSubs, msg.peerID)
 				}
 			case newBlockchain:
-				n.blockchain.NewBlockchain()
+
 
 			case getBlockchain:
-				n.blockchain.SyncFull(msg.serializedMessage, msg.mine)
+
 
 			case getCurrentTime:
-				n.timeService.GetTime(msg.serializedMessage, msg.mine)
+
 
 			}
 		}
