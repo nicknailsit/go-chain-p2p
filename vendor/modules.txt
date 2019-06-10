@@ -1,5 +1,7 @@
 # github.com/BluntSporks/readability v0.0.0-20170405091137-6f1eb9729696
 github.com/BluntSporks/readability
+# github.com/alecthomas/gozmq v0.0.0-20140622232202-d1b01a2df6b2
+github.com/alecthomas/gozmq
 # github.com/beevik/ntp v0.2.0
 github.com/beevik/ntp
 # github.com/btcsuite/btcd v0.0.0-20190213025234-306aecffea32
@@ -9,8 +11,8 @@ github.com/coreos/go-semver/semver
 # github.com/davecgh/go-spew v1.1.1
 github.com/davecgh/go-spew/spew
 # github.com/gogo/protobuf v1.2.1
-github.com/gogo/protobuf/io
 github.com/gogo/protobuf/proto
+github.com/gogo/protobuf/io
 # github.com/golang/protobuf v1.3.1
 github.com/golang/protobuf/proto
 # github.com/golang/snappy v0.0.0-20180518054509-2e65f85255db
@@ -126,19 +128,19 @@ github.com/libp2p/go-libp2p-autonat/pb
 github.com/libp2p/go-libp2p-circuit
 github.com/libp2p/go-libp2p-circuit/pb
 # github.com/libp2p/go-libp2p-core v0.0.1
-github.com/libp2p/go-libp2p-core/host
 github.com/libp2p/go-libp2p-core
 github.com/libp2p/go-libp2p-core/crypto
-github.com/libp2p/go-libp2p-core/network
+github.com/libp2p/go-libp2p-core/host
 github.com/libp2p/go-libp2p-core/peer
+github.com/libp2p/go-libp2p-core/network
 github.com/libp2p/go-libp2p-core/peerstore
 github.com/libp2p/go-libp2p-core/protocol
 github.com/libp2p/go-libp2p-core/connmgr
-github.com/libp2p/go-libp2p-core/helpers
-github.com/libp2p/go-libp2p-core/routing
 github.com/libp2p/go-libp2p-core/metrics
 github.com/libp2p/go-libp2p-core/pnet
 github.com/libp2p/go-libp2p-core/crypto/pb
+github.com/libp2p/go-libp2p-core/helpers
+github.com/libp2p/go-libp2p-core/routing
 github.com/libp2p/go-libp2p-core/mux
 github.com/libp2p/go-libp2p-core/transport
 github.com/libp2p/go-libp2p-core/sec
@@ -166,9 +168,9 @@ github.com/libp2p/go-libp2p-nat
 # github.com/libp2p/go-libp2p-peer v0.2.0
 github.com/libp2p/go-libp2p-peer
 # github.com/libp2p/go-libp2p-peerstore v0.1.0
+github.com/libp2p/go-libp2p-peerstore/pstoremem
 github.com/libp2p/go-libp2p-peerstore
 github.com/libp2p/go-libp2p-peerstore/queue
-github.com/libp2p/go-libp2p-peerstore/pstoremem
 github.com/libp2p/go-libp2p-peerstore/addr
 # github.com/libp2p/go-libp2p-pubsub v0.1.0
 github.com/libp2p/go-libp2p-pubsub
