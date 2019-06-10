@@ -1,4 +1,5 @@
 *.pem
 *.key
-vendor/*/*
-.idea
+./vendor
+./vendor/*/*
+./.idea
