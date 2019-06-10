@@ -1,3 +1,5 @@
+# github.com/BluntSporks/readability v0.0.0-20170405091137-6f1eb9729696
+github.com/BluntSporks/readability
 # github.com/beevik/ntp v0.2.0
 github.com/beevik/ntp
 # github.com/btcsuite/btcd v0.0.0-20190213025234-306aecffea32
@@ -209,6 +211,8 @@ github.com/libp2p/go-yamux
 github.com/mattn/go-colorable
 # github.com/mattn/go-isatty v0.0.5
 github.com/mattn/go-isatty
+# github.com/mb-14/gomarkov v0.0.0-20190125094512-044dd0dcb5e7
+github.com/mb-14/gomarkov
 # github.com/miekg/dns v1.1.12
 github.com/miekg/dns
 # github.com/minio/blake2b-simd v0.0.0-20160723061019-3f5f724cb5b1
@@ -219,6 +223,8 @@ github.com/minio/sha256-simd
 github.com/mitchellh/go-homedir
 # github.com/mr-tron/base58 v1.1.2
 github.com/mr-tron/base58/base58
+# github.com/mtso/syllables v0.1.0
+github.com/mtso/syllables
 # github.com/multiformats/go-base32 v0.0.3
 github.com/multiformats/go-base32
 # github.com/multiformats/go-multiaddr v0.0.4

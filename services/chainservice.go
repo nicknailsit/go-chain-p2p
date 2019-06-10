@@ -233,3 +233,8 @@ func getBlockHeaders(s core.Stream, cs *ChainService) ([]byte, int, error) {
 
 	return nil, 0, nil
 }
+
+
+func (cs *ChainService) NewBlockchain() {
+
+}
