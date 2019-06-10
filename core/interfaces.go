@@ -17,6 +17,7 @@ type Swagg interface {
 	Difficulty() uint64
 	Coinbase() Coinbase
 	Logo() []byte
+	Create() *SwaggChain
 
 }
 
