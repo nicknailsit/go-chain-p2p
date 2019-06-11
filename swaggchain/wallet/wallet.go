@@ -2,6 +2,7 @@ package wallet
 
 import (
 	"go/types"
+	"swaggp2p/core/pb"
 )
 
 type WalletInterface interface {
@@ -17,6 +18,9 @@ type WalletInterface interface {
 	CreateMultisig(numSig int, hdpubkey []byte, hdprivkey []byte) error
 	Serialize() []byte
 	Unserialize() *struct{}
+	GetUTXOS() []pb.Transaction_Output
+	SignTX(tx *pb.Transaction)
+	SignUTXOS(tx []pb.Transaction)
 }
 
 type Wallet struct {

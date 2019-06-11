@@ -135,7 +135,7 @@ func (a *Address) Encode(data []byte, salt []byte, p params) (encodedHash []byte
 
 }
 
-func CreateNewAddress() {
+func CreateNewAddress() (string, string) {
 
 	addr := &Address{}
 	a, _, m := addr.New()
@@ -144,5 +144,7 @@ func CreateNewAddress() {
 
 	log.Printf("address: %s", base58.Encode(a.Serialize()))
 	log.Printf("mnemonic: %s", m)
+
+	return base58.Encode(a.Serialize()), m
 
 }

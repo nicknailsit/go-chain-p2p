@@ -61,9 +61,7 @@ type SwaggChain struct {
 
 type Coinbase struct {
 	Address []byte
-	dna []byte
-	ancestors []byte
-
+	Coin *SWAGG
 }
 
 type AddressBook struct {

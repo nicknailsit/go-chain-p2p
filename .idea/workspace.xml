@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7dfa287-95fe-49e5-9a70-36d6dfb1d82a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/core/coin.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/interfaces.go" beforeDir="false" afterPath="$PROJECT_DIR$/core/interfaces.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swaggchain/wallet/address.go" beforeDir="false" afterPath="$PROJECT_DIR$/swaggchain/wallet/address.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swaggchain/wallet/tx.go" beforeDir="false" afterPath="$PROJECT_DIR$/swaggchain/wallet/tx.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swaggchain/wallet/wallet.go" beforeDir="false" afterPath="$PROJECT_DIR$/swaggchain/wallet/wallet.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +32,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/swaggchain/wallet/wallet.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="55" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="699">
+              <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+              <folding>
+                <element signature="e#16#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -45,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/swaggchain/wallet/address.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="79" column="41" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="41" />
+            <state relative-caret-position="657">
+              <caret line="148" selection-start-line="148" selection-end-line="148" />
               <folding>
                 <element signature="e#16#123#0" expanded="true" />
               </folding>
@@ -60,8 +65,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/swaggchain/wallet/tx.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="480">
+              <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+              <folding>
+                <element signature="e#16#63#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/coin.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="691">
+              <caret line="107" selection-start-line="107" selection-end-line="107" />
+              <folding>
+                <element signature="e#14#70#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/swaggchain/keys.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -69,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/interfaces.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="129" column="22" selection-start-line="129" selection-start-column="22" selection-end-line="129" selection-end-column="22" />
+            <state relative-caret-position="509">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
             </state>
           </provider>
         </entry>
@@ -117,8 +146,8 @@
       <find>&quot;,</find>
       <find>&quot;</find>
       <find>w, err</find>
-      <find>BitCurve</find>
       <find>TheCurve.P</find>
+      <find>BitCurve</find>
     </findStrings>
     <replaceStrings>
       <replace>c *ChainStream</replace>
@@ -127,8 +156,8 @@
       <replace>&quot;},</replace>
       <replace>&quot;,\n</replace>
       <replace>a, err</replace>
-      <replace>TheCurve</replace>
       <replace>t.P</replace>
+      <replace>TheCurve</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\nick\go\src\swaggp2p\p2p</dir>
@@ -141,7 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/math2/math2.go" />
         <option value="$PROJECT_DIR$/p2p/discovery.go" />
         <option value="$PROJECT_DIR$/p2p/host.go" />
         <option value="$PROJECT_DIR$/p2p/protocols.go" />
@@ -186,12 +214,13 @@
         <option value="$PROJECT_DIR$/swaggchain/wallet.go" />
         <option value="$PROJECT_DIR$/crypto/numbers.go" />
         <option value="$PROJECT_DIR$/swaggchain/wallet/pb/wallet.proto" />
-        <option value="$PROJECT_DIR$/swaggchain/wallet/wallet.go" />
-        <option value="$PROJECT_DIR$/swaggchain/wallet/tx.go" />
-        <option value="$PROJECT_DIR$/core/interfaces.go" />
         <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/swaggchain/wallet/curve.go" />
+        <option value="$PROJECT_DIR$/swaggchain/wallet/wallet.go" />
+        <option value="$PROJECT_DIR$/swaggchain/wallet/tx.go" />
         <option value="$PROJECT_DIR$/swaggchain/wallet/address.go" />
+        <option value="$PROJECT_DIR$/core/interfaces.go" />
+        <option value="$PROJECT_DIR$/core/coin.go" />
       </list>
     </option>
   </component>
@@ -288,7 +317,7 @@
     <frame x="0" y="23" width="2560" height="1337" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1985703" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1985703" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -302,8 +331,8 @@
       <window_info anchor="bottom" id="XMake" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info active="true" anchor="bottom" x="-1920" y="99" width="1920" height="690" id="Terminal" order="11" sideWeight="0.4988086" visible="true" weight="0.32610443" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50119144" side_tool="true" visible="true" weight="0.32610443" />
+      <window_info anchor="bottom" x="-1920" y="99" width="1920" height="690" id="Terminal" order="11" sideWeight="0.57545674" visible="true" weight="0.32610443" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.4245433" side_tool="true" visible="true" weight="0.32610443" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -318,7 +347,6 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SwaggChain/Block.go" />
     <entry file="file://$PROJECT_DIR$/p2p/main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -578,34 +606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/interfaces.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="129" column="22" selection-start-line="129" selection-start-column="22" selection-end-line="129" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/swaggchain/wallet/wallet.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/swaggchain/wallet/tx.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/swaggchain/network.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" selection-start-line="24" selection-end-line="27" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -623,13 +623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/swaggchain/keys.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126">
-          <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/swaggchain/wallet/curve.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1755">
@@ -640,12 +633,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/swaggchain/network.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="24" selection-start-line="24" selection-end-line="27" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/swaggchain/keys.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="62" column="10" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/swaggchain/wallet/wallet.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="699">
+          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
+          <folding>
+            <element signature="e#16#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/swaggchain/wallet/address.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="79" column="41" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="41" />
+        <state relative-caret-position="657">
+          <caret line="148" selection-start-line="148" selection-end-line="148" />
           <folding>
             <element signature="e#16#123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/swaggchain/wallet/tx.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+          <folding>
+            <element signature="e#16#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/interfaces.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/coin.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="691">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
+          <folding>
+            <element signature="e#14#70#0" expanded="true" />
           </folding>
         </state>
       </provider>
