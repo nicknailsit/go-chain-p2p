@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "wallet";
+
+
+message WalletAddress {
+    string address = 1;
+}
+
+message WalletTransaction {
+    int32 index = 1;
+    float amount = 2;
+    float fee = 3;
+    bytes from = 4;
+    bool anonymous = 5;
+}
+

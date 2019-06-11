@@ -114,3 +114,28 @@ type DNAParams struct {
 	populationSize uint32
 	target []byte
 }
+
+type TX interface {
+	Spend(coinType []byte, amount float64, address string, to string) (*pb.Transaction, error)
+	CreateOutput(input *pb.Transaction_Input, index int, spendable bool, solvable bool, useMaxSigInput bool) (*pb.Transaction_Output, error)
+	CreateInput(tx *pb.Transaction, isCoinbase bool) (*pb.Transaction_Input, error)
+	Validate(tx *pb.Transaction) error
+	GetCoinType(coinType []byte) (*Coin, error)
+}
+
+type Coin struct {
+	Name string
+	Symbol string
+	MinAllowed float64
+	MaxAllowed float64
+	MaxAvailable uint32
+	Mineable bool
+	Spendable bool
+	Exchangeable bool
+	TotalAvailable float64
+	Unlocked float64
+	CoinbaseAddr string
+	IsInMainChain bool
+	IsDefault bool
+}
+
