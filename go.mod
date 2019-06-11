@@ -6,7 +6,9 @@ require (
 	github.com/BluntSporks/readability v0.0.0-20170405091137-6f1eb9729696
 	github.com/alecthomas/gozmq v0.0.0-20140622232202-d1b01a2df6b2 // indirect
 	github.com/beevik/ntp v0.2.0
-	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/btcsuite/btcd v0.0.0-20190213025234-306aecffea32
+	github.com/btcsuite/btcutil v0.0.0-20190207003914-4c204d697803
+	github.com/davecgh/go-spew v1.1.1
 	github.com/gogo/protobuf v1.2.1
 	github.com/golang/protobuf v1.3.1
 	github.com/google/flatbuffers v1.11.0 // indirect
@@ -30,7 +32,6 @@ require (
 	github.com/mr-tron/base58 v1.1.2
 	github.com/mtso/syllables v0.1.0 // indirect
 	github.com/multiformats/go-multiaddr v0.0.4
-	github.com/multiformats/go-multiaddr-net v0.0.1
 	github.com/multiformats/go-multihash v0.0.5
 	github.com/op/go-logging v0.0.0-20160315200505-970db520ece7
 	github.com/opentracing/opentracing-go v1.0.2
