@@ -9,6 +9,7 @@ require (
 	github.com/btcsuite/btcd v0.0.0-20190213025234-306aecffea32
 	github.com/btcsuite/btcutil v0.0.0-20190207003914-4c204d697803
 	github.com/davecgh/go-spew v1.1.1
+	github.com/dongri/go-mnemonic v0.0.0-20180529164210-dc9bfc04a038
 	github.com/gogo/protobuf v1.2.1
 	github.com/golang/protobuf v1.3.1
 	github.com/google/flatbuffers v1.11.0 // indirect

@@ -2,16 +2,18 @@ package wallet
 
 import "C"
 import (
+	"bytes"
 	"crypto/ecdsa"
 	"crypto/elliptic"
 	"crypto/rand"
 	"crypto/sha256"
 	"encoding/base64"
 	"encoding/hex"
-	. "github.com/mr-tron/base58"
+	"fmt"
+	"github.com/btcsuite/btcutil/base58"
+	"github.com/dongri/go-mnemonic"
 	"golang.org/x/crypto/argon2"
 	"log"
-	"strings"
 	"time"
 )
 
@@ -72,20 +74,22 @@ func generateECDSAKeyPair() (priv *ecdsa.PrivateKey, pub ecdsa.PublicKey){
 
 
 
-func (a *Address) New() *Address {
+func (a *Address) New() (*Address, string, string) {
 
 	priv, _ := generateECDSAKeyPair()
+	m, _ := mnemonic.GenerateMnemonic(256, mnemonic.LanguageEnglish)
+	salt:= mnemonic.ToSeedHex(m, hex.EncodeToString(priv.X.Bytes()))
 	addr := &Address{
 		prefix: AddrVersion,
 		nVersion: DevPublic,
-		pubKey: a.Encode(priv.Y.Bytes(), p),
-		privKey: a.Encode(priv.X.Bytes(), p),
+		pubKey: []byte(base58.Encode(a.Encode(priv.Y.Bytes(), []byte(salt), p))),
 		timeStamp: time.Now().UTC().UnixNano(),
 	}
 
 
 
-	return addr
+
+	return addr, salt, m
 
 }
 
@@ -109,14 +113,22 @@ func (a *Address) Serialize() []byte {
 }
 
 
-func (a *Address) Encode(data []byte, p params) (encoded []byte) {
+func (a *Address) Encode(data []byte, salt []byte, p params) (encodedHash []byte) {
 
-	salt, err := createSeed(p.saltLength)
-	if err != nil {
-		panic(err)
-	}
 
-	encoded = argon2.IDKey([]byte(data), salt, p.iterations, p.memory, p.parallelism, p.keyLength)
+
+	encoded := argon2.IDKey([]byte(data), salt, p.iterations, p.memory, p.parallelism, p.keyLength)
+	// Base64 encode the salt and hashed password.
+	b64Salt := base64.RawStdEncoding.EncodeToString(salt)
+	b64Hash := base64.RawStdEncoding.EncodeToString(encoded)
+
+	// Return a string using the standard encoded hash representation.
+	encodedHash1 := fmt.Sprintf("%s",  bytes.Join([][]byte{
+		[]byte(b64Hash),
+		[]byte(b64Salt),
+	},nil))
+	encodedHash = []byte(encodedHash1)
+
 
 	return
 
@@ -126,11 +138,11 @@ func (a *Address) Encode(data []byte, p params) (encoded []byte) {
 func CreateNewAddress() {
 
 	addr := &Address{}
-	a := addr.New()
+	a, _, m := addr.New()
 
-	encoded := base64.StdEncoding.EncodeToString(a.Serialize())
 
-	log.Printf("address: %s", strings.ToUpper(Encode([]byte(encoded))))
 
+	log.Printf("address: %s", base58.Encode(a.Serialize()))
+	log.Printf("mnemonic: %s", m)
 
 }
