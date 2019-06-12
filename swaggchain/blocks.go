@@ -1,26 +1,22 @@
 package swaggchain
 
 import (
-
 	"crypto"
 	"crypto/rand"
 	"encoding/hex"
 	"encoding/json"
 	"github.com/minio/blake2b-simd"
-	"swaggp2p/core"
-
 	"strconv"
-	"swaggp2p/core/pb"
-
+	"swaggp2p/pb"
 	"time"
 )
 
-type GenesisBlock pb.Block
+
 type GBlockHeader pb.BlockHeader
 
 
 const G_BLOCKINDEX = 0
-var G_VERSION, _ = hex.DecodeString(string(core.PUBLIC))
+var G_VERSION, _ = hex.DecodeString(string(Mainnet))
 const G_REWARD = 1000000
 var G_TXCount = 0
 var G_TXVALUE = float32(0)
@@ -72,10 +68,10 @@ func (g *GenesisBlock) Create(chainID string) *pb.Block {
 	B := new(pb.Block)
 	B.Header = header
 	B.Blockindex = G_BLOCKINDEX
-	B.Version = []byte{0x73}
+	B.Version = []byte{BlockVersion}
 	B.Reward = G_REWARD
 	B.Txcount = uint32(G_TXCount)
-	B.Txvalues = G_TXVALUE
+	B.Txvalues = 0
 	B.Merkleroot = G_MERKLE_ROOT
 	B.Timestamp = TIMESTAMP
 
