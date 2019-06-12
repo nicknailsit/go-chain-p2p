@@ -1,11 +1,14 @@
 package swaggchain
 
 import (
+	"bytes"
 	"crypto/sha256"
 	"encoding/hex"
 	"encoding/json"
+	"errors"
 	"github.com/cbergoon/merkletree"
 	"github.com/google/uuid"
+	"github.com/minio/blake2b-simd"
 	"swaggp2p/pb"
 	"sync"
 	"time"
@@ -71,7 +74,7 @@ func (m MerkleContent) Equals(other merkletree.Content) (bool, error) {
 
 
 
-func (bc Blockchain) ComputeMerkleTree() {
+func (bc Blockchain) ComputeMerkleTree() *merkletree.MerkleTree {
 
 
 	var list []merkletree.Content
@@ -91,25 +94,129 @@ func (bc Blockchain) ComputeMerkleTree() {
 	merkleroot := t.MerkleRoot()
 	bc.MerkleRoot = merkleroot
 	bc.MerkleString = t.String()
+	return t
 }
 
-func (bc Blockchain) VerifyMerkleTree(t *merkletree.MerkleTree) {
+func (bc Blockchain) VerifyMerkleTree(t *merkletree.MerkleTree) error {
 
 	_, err := t.VerifyTree()
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
+
+	return nil
 
 }
 
-func (bc Blockchain) VerifyMerkleTreeContent(t *merkletree.MerkleTree, toVerify MerkleContent) {
+func (bc Blockchain) VerifyMerkleTreeContent(t *merkletree.MerkleTree, toVerify MerkleContent) error {
 	_, err := t.VerifyContent(toVerify)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
+	return nil
 }
 
 func (bc Blockchain) getLastHash() []byte {
 	return bc.swaggchain.lastHash;
+}
+
+func CompareChains(chain...  *Blockchain) *Blockchain {
+
+		var bestCandidate *Blockchain
+
+		bestCandidate = nil
+
+		for i, _ := range chain {
+
+
+			//compare lengths
+			if len(chain[i].swaggchain.Blocks) == len(chain[i+1].swaggchain.Blocks) {
+					bestCandidate = chain[i+1]
+			} else {
+				if len(chain[i].swaggchain.Blocks) > len(chain[i+1].swaggchain.Blocks) {
+					bestCandidate = chain[i]
+				} else if len(chain[i].swaggchain.Blocks) < len(chain[i+1].swaggchain.Blocks)  {
+					bestCandidate = chain[i+1]
+				}
+			}
+
+		}
+
+		return bestCandidate
+
+}
+
+func ValidateMerkle(chain ...*Blockchain) *Blockchain {
+
+	var bestCandidate *Blockchain
+
+	bestCandidate = nil
+
+	for i, _ := range chain {
+
+		ms := chain[i].MerkleString
+		ms2 := chain[i+1].MerkleString
+		if ms == ms2 {
+			bestCandidate = chain[i]
+		} else if len(ms) > len(ms2) {
+			err := chain[i].VerifyMerkleTree(chain[i].ComputeMerkleTree())
+			if err == nil {
+				bestCandidate = chain[i]
+			}
+			err = chain[i+1].VerifyMerkleTree(chain[i+1].ComputeMerkleTree())
+			if err == nil {
+				bestCandidate = chain[i+1]
+			}
+
+			if err != nil {
+				i = i+2
+				bestCandidate = chain[i]
+			}
+
+		}
+
+
+
+	}
+
+	return bestCandidate
+
+}
+
+func ValidateChain(chain ...*Blockchain) *Blockchain {
+
+	var BestChains []*Blockchain
+
+	for i, _ := range(chain) {
+		BestChains = append(BestChains, CompareChains(chain[i], chain[i+1]))
+	}
+
+	var BestChain *Blockchain
+	for i, _ := range(BestChains) {
+		BestChain = ValidateMerkle(chain[i], chain[i+1])
+	}
+
+	return BestChain
+
+
+}
+
+
+func ValidateBlock(chain *Blockchain, b *pb.Block) error {
+
+
+		ser, _ := json.Marshal(b)
+		hasher := blake2b.New512()
+		hasher.Write(ser)
+		hash := hasher.Sum(nil)
+
+		if bytes.Compare(b.Header.Hash, hash) == 1 {
+
+			return nil
+
+	} else {
+		return errors.New("invalid block hash")
+	}
+
 }
 
