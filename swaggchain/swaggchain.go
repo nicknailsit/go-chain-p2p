@@ -1,47 +1,28 @@
 package swaggchain
 
 import (
+	"crypto/sha256"
+	"encoding/hex"
+	"encoding/json"
+	"github.com/cbergoon/merkletree"
 	"github.com/google/uuid"
-	chainTypes "swaggp2p/core"
-	logging "github.com/ipfs/go-log"
-	"swaggp2p/core/pb"
+	"swaggp2p/pb"
 	"sync"
 	"time"
 )
 
 const GC_TTL = time.Minute;
-var log = logging.Logger("swaggchain")
+
 
 type Blockchain struct {
 	sync.Mutex
-	swaggchain *chainTypes.SwaggChain
-	chainTypes.Swagg
+	swaggchain *SwaggChain
+	Swagg
+	MerkleRoot []byte
+	MerkleString string
 }
 
 
-/**
-type SwaggChain struct {
-	ID string
-	IsMain bool
-	nodes []*SwaggNode
-	currentTime *time.Time
-	epoch uint64
-	versionB byte
-	magicNumber byte
-	genesisTime int64
-	height uint32
-	coinbase *Coinbase
-	addressBook *AddressBook
-	Blocks []*pb.Block
-	lastHash []byte
-	lastBlockIndex []byte
-	lastReward uint64
-	difficulty uint64
-	logoAddress []byte
-	dna []byte
-
-}
- */
 
 func (bc *Blockchain) Create() *Blockchain {
 
@@ -63,17 +44,72 @@ func (bc *Blockchain) Create() *Blockchain {
 	//append genesis block to the chain
 	chainBlocks = append(chainBlocks, g)
 
+	BC.swaggchain.lastHash = genesis.Header.Hash;
+
 	BC.swaggchain = chain
 
 	return BC
 
 
+}
 
+type MerkleContent struct {
+	x string
+}
+
+func (m MerkleContent) CalculateHash() ([]byte, error) {
+	h := sha256.New()
+	if _, err := h.Write([]byte(m.x)); err != nil {
+		return nil, err
+	}
+	return h.Sum(nil), nil
+}
+
+func (m MerkleContent) Equals(other merkletree.Content) (bool, error) {
+	return m.x == other.(MerkleContent).x, nil
 }
 
 
-type Coinbase chainTypes.Coinbase
 
-func (co *Coinbase) Create() {
+func (bc Blockchain) ComputeMerkleTree() {
+
+
+	var list []merkletree.Content
+	for _, block := range bc.swaggchain.Blocks {
+
+		ser, _ := json.Marshal(block)
+
+		list = append(list, MerkleContent{x: hex.EncodeToString(ser)})
+
+	}
+
+	t, err := merkletree.NewTree(list)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	merkleroot := t.MerkleRoot()
+	bc.MerkleRoot = merkleroot
+	bc.MerkleString = t.String()
+}
+
+func (bc Blockchain) VerifyMerkleTree(t *merkletree.MerkleTree) {
+
+	_, err := t.VerifyTree()
+	if err != nil {
+		log.Fatal(err)
+	}
 
 }
+
+func (bc Blockchain) VerifyMerkleTreeContent(t *merkletree.MerkleTree, toVerify MerkleContent) {
+	_, err := t.VerifyContent(toVerify)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func (bc Blockchain) getLastHash() []byte {
+	return bc.swaggchain.lastHash;
+}
+

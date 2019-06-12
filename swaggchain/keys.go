@@ -22,6 +22,18 @@ type ChainKeyPair struct {
 
 const BITSIZE = 4096
 
+func init() {
+	c := &ChainKeyPair{}
+	c.Generate()
+}
+
+
+func NewChainKeyPair() {
+
+	c := &ChainKeyPair{}
+	c.Generate()
+
+}
 
 
 func (c *ChainKeyPair) Generate()  {

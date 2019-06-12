@@ -1,9 +1,10 @@
-package core
+package swaggchain
 
 import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/davecgh/go-spew/spew"
 	"github.com/minio/blake2b-simd"
 	"math/rand"
 	"swaggp2p/repo"
@@ -237,6 +238,7 @@ func GetDNA() (solution *DNASolution) {
 	elapsed := time.Since(start)
 	fmt.Printf("\nTime taken: %s\n", elapsed)
 
+	spew.Dump(solution)
 
 	return
 }

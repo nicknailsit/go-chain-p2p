@@ -1,4 +1,4 @@
-package wallet
+package swaggchain
 
 import "C"
 import (
@@ -13,7 +13,7 @@ import (
 	"github.com/btcsuite/btcutil/base58"
 	"github.com/dongri/go-mnemonic"
 	"golang.org/x/crypto/argon2"
-	"log"
+
 	"time"
 )
 
@@ -25,19 +25,14 @@ type Address struct {
 	timeStamp int64
 }
 
-type params struct {
+type paramsAddr struct {
 	memory      uint32
 	iterations  uint32
 	parallelism uint8
 	saltLength  uint32
 	keyLength   uint32
 }
-var Name, _ = hex.DecodeString("17BDFD4AE")
-var Mainnet, _  = hex.DecodeString("94636F142A")
-var Testnet, _ = hex.DecodeString("94636F1439")
-var DevPublic, _ = hex.DecodeString("94636F1416")
-var AddrVersion = byte(0x1B)
-var PrivKeyVersion = byte(0x9F)
+
 
 
 
@@ -49,11 +44,11 @@ func createSeed(n uint32) (buf []byte, err error) {
 
 }
 
-var p params
+var p paramsAddr
 
 func init() {
 
-	p = params{
+	p = paramsAddr{
 		memory: 64 * 1024,
 		iterations: 3,
 		parallelism: 2,
@@ -113,7 +108,7 @@ func (a *Address) Serialize() []byte {
 }
 
 
-func (a *Address) Encode(data []byte, salt []byte, p params) (encodedHash []byte) {
+func (a *Address) Encode(data []byte, salt []byte, p paramsAddr) (encodedHash []byte) {
 
 
 
@@ -135,15 +130,13 @@ func (a *Address) Encode(data []byte, salt []byte, p params) (encodedHash []byte
 
 }
 
+
+//CreateNewAddress @returns string address, mnemonic
+
 func CreateNewAddress() (string, string) {
 
 	addr := &Address{}
 	a, _, m := addr.New()
-
-
-
-	log.Printf("address: %s", base58.Encode(a.Serialize()))
-	log.Printf("mnemonic: %s", m)
 
 	return base58.Encode(a.Serialize()), m
 

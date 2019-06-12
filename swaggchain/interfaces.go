@@ -1,7 +1,7 @@
-package core
+package swaggchain
 
 import (
-	"swaggp2p/core/pb"
+	"swaggp2p/pb"
 	"sync"
 	"time"
 )
@@ -61,7 +61,7 @@ type SwaggChain struct {
 
 type Coinbase struct {
 	Address []byte
-	Coin *SWAGG
+	Coin interface{}
 }
 
 type AddressBook struct {

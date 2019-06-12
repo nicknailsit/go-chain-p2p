@@ -1,14 +1,14 @@
 package main
 
 import (
-	"swaggp2p/swaggchain/wallet"
+	"swaggp2p/swaggchain"
 )
 
 
 func main() {
 
-wallet.CreateNewAddress()
 
-//repo.TrainForPow()
+
+swaggchain.GetDNA()
 
 }

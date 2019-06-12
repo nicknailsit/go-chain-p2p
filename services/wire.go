@@ -3,16 +3,16 @@ package services
 import (
 	"context"
 	"fmt"
+	ggio "github.com/gogo/protobuf/io"
+	ctxio "github.com/jbenet/go-context/io"
 	"github.com/libp2p/go-libp2p-core/host"
-	"github.com/libp2p/go-libp2p-core/protocol"
+	inet "github.com/libp2p/go-libp2p-core/network"
 	"github.com/libp2p/go-libp2p-core/peer"
+	"github.com/libp2p/go-libp2p-core/protocol"
 	"github.com/op/go-logging"
 	"github.com/opentracing/opentracing-go/log"
 	"io"
-	"swaggp2p/core/pb"
-	ggio "github.com/gogo/protobuf/io"
-	ctxio "github.com/jbenet/go-context/io"
-	inet "github.com/libp2p/go-libp2p-core/network"
+	"swaggp2p/pb"
 	"time"
 )
 

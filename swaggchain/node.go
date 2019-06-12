@@ -1,4 +1,4 @@
-package core
+package swaggchain
 
 import (
 	"context"
@@ -8,14 +8,14 @@ import (
 	"github.com/ipfs/go-cid"
 
 	"github.com/libp2p/go-libp2p-core/host"
+	"github.com/libp2p/go-libp2p-core/peer"
 	dht "github.com/libp2p/go-libp2p-kad-dht"
-	peer "github.com/libp2p/go-libp2p-core/peer"
 	fs "github.com/libp2p/go-libp2p-pubsub"
 	"github.com/multiformats/go-multihash"
 
 	"github.com/op/go-logging"
 	"io"
-	"swaggp2p/core/pb"
+	"swaggp2p/pb"
 	"swaggp2p/repo"
 	"swaggp2p/services"
 	"sync"
@@ -275,7 +275,7 @@ func (n *SwaggNode) connectionRound() {
 			n.msgChan <- addPeer{pi.ID}
 
 			if n.wireService != nil {
-				m := &pb.Message {
+				m := &pb.Message{
 					MessageType: pb.Message_GetChainInfo,
 				}
 				n.wireService.SendMessage(pi.ID, m)

@@ -2,7 +2,7 @@ package wallet
 
 import (
 	"go/types"
-	"swaggp2p/core/pb"
+	"swaggp2p/pb"
 )
 
 type WalletInterface interface {
