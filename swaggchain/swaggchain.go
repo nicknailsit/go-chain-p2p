@@ -6,9 +6,11 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"github.com/cbergoon/merkletree"
 	"github.com/google/uuid"
 	"github.com/minio/blake2b-simd"
+	"strconv"
 	"swaggp2p/pb"
 	"sync"
 	"time"
@@ -202,7 +204,7 @@ func ValidateChain(chain ...*Blockchain) *Blockchain {
 }
 
 
-func ValidateBlock(chain *Blockchain, b *pb.Block) error {
+func ValidateBlock(b *pb.Block) error {
 
 
 		ser, _ := json.Marshal(b)
@@ -220,3 +222,63 @@ func ValidateBlock(chain *Blockchain, b *pb.Block) error {
 
 }
 
+
+func GenerateNewOrphanBlock(chain *Blockchain) *pb.Block {
+
+	blen := len(chain.swaggchain.Blocks)
+	block := &pb.Block{
+		Header: NewBlockHeader(chain.swaggchain.ID),
+		Blockindex: uint32(blen),
+		Version:[]byte{BlockVersion},
+		Reward: 100000,
+		Txcount: uint32(0),
+		Txvalues: 0,
+		Merkleroot: nil,
+		Timestamp: nil,
+	}
+
+	return block
+
+}
+
+func NewBlockHeader(chainID string) *pb.BlockHeader {
+
+
+		chainIDint, _ := strconv.Atoi(chainID)
+
+		header := &pb.BlockHeader{
+
+		Chainid: uint32(chainIDint),
+		Height: 0,
+		Difficulty: 127,
+		Nonce: make([]byte, 0),
+		Signature: make([]byte, 0),
+		Timestamp: TIMESTAMP,
+		Blocktype: make([]byte, 0),
+		Blockversion: make([]byte, 0),
+		Blocknetwork: make([]byte, 0),
+	}
+
+	return header
+
+}
+
+func StartGeneratingBlocks(chain *Blockchain) {
+
+
+	ticker := time.NewTicker(GenerateNewBlockEach * (1440/100))
+
+	go func() {
+		for t := range ticker.C {
+
+			block := GenerateNewOrphanBlock(chain)
+			fmt.Println("--------------------------------")
+			fmt.Println("new orphan block created on:", t)
+			fmt.Println("with index of:",block.Blockindex)
+
+		}
+	}()
+
+
+
+}

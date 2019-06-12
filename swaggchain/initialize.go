@@ -1,9 +1,15 @@
 package swaggchain
 
-import "sync"
+import (
+	"crypto/rsa"
+	"sync"
+)
 
 var mu sync.Mutex
 var wg sync.WaitGroup
+var PrivateKey *rsa.PrivateKey
+var PublicKey *rsa.PublicKey
+
 /*
 func init() {
 
