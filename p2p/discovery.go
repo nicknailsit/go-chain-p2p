@@ -2,7 +2,8 @@ package p2p
 
 import (
 	"context"
-	"github.com/libp2p/go-libp2p-core"
+
+	"github.com/libp2p/go-libp2p-core/host"
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/libp2p/go-libp2p/p2p/discovery"
 	"time"
@@ -21,8 +22,8 @@ func (n *discoveryChannel) HandlePeerFound(pi peer.AddrInfo) {
 
 //init mdns
 
-func initMDNS(ctx context.Context, peerhost core.Host, streamType string) chan peer.AddrInfo {
-	ser, err := discovery.NewMdnsService(ctx, peerhost, time.Minute, streamType)
+func initMDNS(ctx context.Context, peerhost host.Host, rendezvous string) chan peer.AddrInfo {
+	ser, err := discovery.NewMdnsService(ctx, peerhost, time.Minute, rendezvous)
 	if err != nil {
 		panic(err)
 	}

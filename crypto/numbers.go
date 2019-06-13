@@ -21,7 +21,7 @@ func limitUnsigned256(x *Number) *Number {
 }
 
 func (i *Number) Uint256() *Number {
-	return Uint(0).Set(i)
+	return Uint(0).limit(i)
 }
 
 var (

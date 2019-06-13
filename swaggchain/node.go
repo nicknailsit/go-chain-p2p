@@ -236,10 +236,10 @@ func (n *SwaggNode) connectToSubscribers() {
 	n.connectionRound()
 	ticker := time.NewTicker(ReconnectInterval)
 	for range ticker.C {
-		for peer := range n.connectedSubs {
-			conns := n.peerHost.Network().ConnsToPeer(peer)
+		for peer1 := range n.connectedSubs {
+			conns := n.peerHost.Network().ConnsToPeer(peer1)
 			if len(conns) == 0 {
-				n.msgChan <- removePeer{peer}
+				n.msgChan <- removePeer{peer1}
 			}
 		}
 		if len(n.connectedSubs) < MinConnectedSubscribers {

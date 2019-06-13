@@ -230,7 +230,7 @@ func GenerateNewOrphanBlock(chain *Blockchain) *pb.Block {
 		Header: NewBlockHeader(chain.swaggchain.ID),
 		Blockindex: uint32(blen),
 		Version:[]byte{BlockVersion},
-		Reward: 100000,
+		Reward: 10000,
 		Txcount: uint32(0),
 		Txvalues: 0,
 		Merkleroot: nil,
