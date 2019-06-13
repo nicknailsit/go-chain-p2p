@@ -63,6 +63,13 @@ var States = []string{
 	"validating_chain",
 	"chain_valid",
 	"chain_invalid",
+	"unauthorized_request",
+	"bad_request",
+	"no_request",
+	"no_response",
+	"timeout",
+	"ping",
+	"pong",
 }
 
 var StateCodes = []byte{
@@ -129,5 +136,12 @@ var StateCodes = []byte{
 	0x9222,
 	0x1010,
 	0x0101,
-	0xf0b1,
+	0xbbad,
+	0xbfff,
+	0xfbad,
+	0xebad,
+	0x00ad,
+	0x14ad,
+	0x14bc,
+
 }
