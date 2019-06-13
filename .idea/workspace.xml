@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7dfa287-95fe-49e5-9a70-36d6dfb1d82a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/statemachine/machine.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/statemachine/storage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statemachine/states.go" beforeDir="false" afterPath="$PROJECT_DIR$/statemachine/states.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statemachine/machine.go" beforeDir="false" afterPath="$PROJECT_DIR$/statemachine/machine.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,8 +87,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/statemachine/machine.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+            <state relative-caret-position="735">
+              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
             </state>
           </provider>
         </entry>
@@ -303,12 +300,22 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="go build swaggp2p" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="swaggp2p" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/" />
+      <package value="swaggp2p" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="StructureViewFactory">
     <option name="ACTIVE_ACTIONS" value=",Show Private Members" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1337" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4994965" visible="true" weight="0.20333599" />
       <window_info id="Structure" order="1" sideWeight="0.50050354" side_tool="true" visible="true" weight="0.20333599" />
@@ -674,8 +681,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/statemachine/machine.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        <state relative-caret-position="735">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
         </state>
       </provider>
     </entry>

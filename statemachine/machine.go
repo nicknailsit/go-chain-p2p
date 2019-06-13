@@ -23,19 +23,21 @@ type StateEventInterface interface {
 	After(func(value interface{}, st *storage) error) *EventTransition
 	Enter(func(value interface{}, st *storage) error) *State
 	Exit(func(value interface{}, st *storage) error) *State
+	enters(func(value interface{}, st *storage) error) *State
+	exits(func(value interface{}, st *storage) error) *State
 }
 
 type Transition struct {
 	State string
 	StateCode byte
-	PrevStates []byte
-	Timestamp int64
+	PrevStates [][]byte
+	lastTransition int64
 }
 
 type StateMachine struct {
 	initialState string
 	states map[string]*State
-
+	events map[string]*Event
 }
 
 
