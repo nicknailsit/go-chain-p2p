@@ -5,9 +5,9 @@ import "container/list"
 type Queue struct { *list.List }
 
 
-func NewQueue() *list.List {
+func NewQueue() *Queue {
 
-	Q := Queue.Init(nil)
+	Q := new(Queue)
 	return Q
 
 }

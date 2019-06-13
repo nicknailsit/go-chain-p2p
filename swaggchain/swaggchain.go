@@ -234,7 +234,7 @@ func GenerateNewOrphanBlock(chain *Blockchain) *pb.Block {
 		Txcount: uint32(0),
 		Txvalues: 0,
 		Merkleroot: nil,
-		Timestamp: nil,
+		Timestamp: 0,
 	}
 
 	return block
